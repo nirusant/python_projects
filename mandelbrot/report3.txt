@@ -1,0 +1,44 @@
+Parameters used to generate image:
+
+Function used:
+makeMandelbrotSet(numIt,pixelWidth,pixelHeight,xMinVal,xMaxVal,yMinVal,yMaxVal)
+
+Paremeters:
+numIt 		= 100 	#The maximum number of iterations 
+pixelWidth 	= 1000	#The interval between the minimum value and maximum value in the x/real-direction
+pixelHeight 	= 1000  #The interval between the minimum value and maximum value in the y/imaginary-direction
+xMinVal 	= -2	#Starting value in the x/real-domain
+xMaxVal  	= 1	#Stoping value in the x/real-domain
+yMinVal 	= -1.5  #Starting value in the y/imaginary-plane
+yMaxVal 	= 1.5	#Stoping value in the y/imgainary-plane
+
+mandelbrot_1.py achieved:
+3.6582233905792236
+3.595604181289673
+3.604166269302368
+3.6359641551971436
+3.69406795501709
+
+mandelbrot_2.py achieved:
+0.7365000247955322
+0.7411289215087891
+0.7596654891967773
+0.8072857856750488
+0.7905983924865723
+
+mandelbrot_3.py achieved:
+0.584611177444458
+0.23296356201171875
+0.23412346839904785
+0.234039306640625
+0.23286819458007812
+
+The improvement between the best result from each program:
+mandelprot_1.py/mandelbrot_3.py =  3.596s/ 0.233s = 15.43 -> 5.43 times faster than python
+mandelprot_2.py/mandelbrot_3.py =  0.737s/ 0.233s = 3.16  -> 3.16 times faster than numpy
+
+Advantages/disadvatages using numba over numpy:
+Advanteges:
+	+ Easy to use, can implement code very "ineffective" and stil get good results
+	- You end up being in the mercy of the numba compiler, and very hard to debug without intimate knowldege of numba.
+

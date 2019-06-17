@@ -1,0 +1,16 @@
+"#.*(?:$|\n)": comment
+"(?<!#)(import)": import
+"(?<!#)(^from)(?! \w{1,} import)": from
+"\sas(?=\s\w{1,}\s\W|\s\w{1,}\n|\s\w{1,}\s\n)": as
+"("""(.|\n)*?[^\\]"""|""(.|\n)*?[^\\]""|'(.|\n)*?[^\\]'|"(.|\n)*?[^\\]")": string
+"\w{1,}(?=\()": function
+"^class\s": class
+"\bif\b(?=.*\:)": if
+"\belif\b(?=.*\:)": elif
+"\belse\b(?=.*\:)": else
+"\bwhile(?=.*\:)": while
+"\@(?!\(\w{1,}\))": decorator
+"(?!\w{1,} \w{1,} )\sin\s(?=.*\:)": in
+"def (?=.*\()": def
+"(for)(?=\s.*\:)": for
+"(False|None|True)": special

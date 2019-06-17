@@ -1,0 +1,138 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module temperature_CO2_plotter</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>temperature_CO2_plotter</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/nirusant/INF4331/INF3331-nirusant/assignment6/temperature_CO2_plotter.py">/home/nirusant/INF4331/INF3331-nirusant/assignment6/temperature_CO2_plotter.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+<a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_arguments"><strong>get_arguments</strong></a>(temperature_month<font color="#909090">=False</font>)</dt><dd><tt>When&nbsp;running&nbsp;the&nbsp;script&nbsp;from&nbsp;the&nbsp;terminal,&nbsp;this&nbsp;method&nbsp;prompts&nbsp;the<br>
+user&nbsp;with&nbsp;question&nbsp;necesarry&nbsp;to&nbsp;plot&nbsp;the&nbsp;desired&nbsp;plots.<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;temperature_month,&nbsp;boolean&nbsp;that&nbsp;decides&nbsp;if&nbsp;one&nbsp;extra&nbsp;question<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;required.<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;with&nbsp;two&nbsp;elements,&nbsp;indicating&nbsp;the&nbsp;desired&nbsp;interval&nbsp;we<br>
+&nbsp;&nbsp;&nbsp;&nbsp;want&nbsp;to&nbsp;plot&nbsp;on&nbsp;the&nbsp;x-axis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;with&nbsp;two&nbsp;elements,&nbsp;indicating&nbsp;the&nbsp;desired&nbsp;interval&nbsp;we&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;want&nbsp;to&nbsp;plot&nbsp;on&nbsp;the&nbsp;y-axis<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;string&nbsp;with&nbsp;a&nbsp;name&nbsp;of&nbsp;the&nbsp;month&nbsp;we&nbsp;want&nbsp;to&nbsp;plot.</tt></dd></dl>
+ <dl><dt><a name="-get_table"><strong>get_table</strong></a>(desired_file)</dt><dd><tt>Based&nbsp;on&nbsp;the&nbsp;input&nbsp;string&nbsp;the&nbsp;method&nbsp;opens&nbsp;and&nbsp;rads&nbsp;a&nbsp;cvs&nbsp;file<br>
+and&nbsp;converts&nbsp;it&nbsp;to&nbsp;a&nbsp;dataframe&nbsp;object.<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;desired_file,a&nbsp;string&nbsp;with&nbsp;the&nbsp;name&nbsp;of&nbsp;of&nbsp;the&nbsp;file&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;directory&nbsp;<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pandas.dataframe&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-help_win"><strong>help_win</strong></a>()</dt><dd><tt>Help&nbsp;screen&nbsp;for&nbsp;users<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>Prompts&nbsp;the&nbsp;user&nbsp;with&nbsp;questions&nbsp;on&nbsp;which&nbsp;plot&nbsp;to&nbsp;make.<br>
+After&nbsp;producing&nbsp;a&nbsp;plot,&nbsp;the&nbsp;functions&nbsp;displays&nbsp;the&nbsp;plot<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none</tt></dd></dl>
+ <dl><dt><a name="-plot_CO2"><strong>plot_CO2</strong></a>(co2_table, range_of_year, yaxis)</dt><dd><tt>Makes&nbsp;a&nbsp;plot&nbsp;based&nbsp;on&nbsp;&nbsp;the&nbsp;co2-dataframe.<br>
+The&nbsp;plot&nbsp;then&nbsp;gets&nbsp;saved&nbsp;to&nbsp;the&nbsp;static&nbsp;folder.<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;co2_table,&nbsp;dataframe&nbsp;containing&nbsp;the&nbsp;necessary&nbsp;data&nbsp;to&nbsp;make<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;plot.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;range_of_year,&nbsp;list&nbsp;containg&nbsp;two&nbsp;elements&nbsp;decides&nbsp;the&nbsp;x-axis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;plot.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yaxis,&nbsp;list&nbsp;containing&nbsp;two&nbsp;elements,&nbsp;decides&nbsp;the&nbsp;y-axis&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;plot<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none</tt></dd></dl>
+ <dl><dt><a name="-plot_temp"><strong>plot_temp</strong></a>(temperature_table, month, years, yaxis)</dt><dd><tt>Plots&nbsp;a&nbsp;dataframe&nbsp;of&nbsp;the&nbsp;temperature&nbsp;table&nbsp;based&nbsp;on&nbsp;some<br>
+specifiactions.<br>
+The&nbsp;plot&nbsp;then&nbsp;gets&nbsp;saved&nbsp;in&nbsp;the&nbsp;static&nbsp;folder.<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;temperature_table,&nbsp;the&nbsp;dataframe&nbsp;we&nbsp;want&nbsp;to&nbsp;plot.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;month,&nbsp;String&nbsp;telling&nbsp;which&nbsp;month&nbsp;to&nbsp;plot.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;years,&nbsp;a&nbsp;list&nbsp;with&nbsp;two&nbsp;elements&nbsp;deciding&nbsp;the&nbsp;range&nbsp;of&nbsp;years<br>
+&nbsp;&nbsp;&nbsp;&nbsp;we&nbsp;need&nbsp;to&nbsp;plot<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yaxis,&nbsp;decides&nbsp;the&nbsp;range&nbsp;of&nbsp;the&nbsp;y-axis&nbsp;of&nbsp;the&nbsp;plot<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none</tt></dd></dl>
+ <dl><dt><a name="-process_co2_by_country_table"><strong>process_co2_by_country_table</strong></a>(co2_by_country_table, treshold<font color="#909090">=nan</font>)</dt><dd><tt>Instead&nbsp;of&nbsp;displaying&nbsp;the&nbsp;data&nbsp;given&nbsp;as&nbsp;a&nbsp;bar-plot,&nbsp;I&nbsp;have&nbsp;decided<br>
+to&nbsp;show&nbsp;the&nbsp;data&nbsp;as&nbsp;an&nbsp;image/heatmap.<br>
+The&nbsp;y-axis&nbsp;represents&nbsp;all&nbsp;the&nbsp;countries,&nbsp;while&nbsp;the&nbsp;x-axis&nbsp;are&nbsp;the&nbsp;<br>
+years&nbsp;1960&nbsp;to&nbsp;2016.<br>
+Each&nbsp;pixel's&nbsp;intensity&nbsp;represents&nbsp;the&nbsp;CO2-value<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;co2_by_coyntry_table,&nbsp;a&nbsp;dateframe&nbsp;object&nbsp;containing&nbsp;information<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;co2&nbsp;levels&nbsp;for&nbsp;each&nbsp;country&nbsp;by&nbsp;year.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;treshold,&nbsp;double&nbsp;telling&nbsp;where&nbsp;to&nbsp;set&nbsp;the&nbsp;CO2-level.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;argument&nbsp;is&nbsp;given&nbsp;as&nbsp;a&nbsp;np.nan&nbsp;this&nbsp;indicates&nbsp;that&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;treshold&nbsp;is&nbsp;need&nbsp;by&nbsp;the&nbsp;user.<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none</tt></dd></dl>
+ <dl><dt><a name="-process_co2_table"><strong>process_co2_table</strong></a>(co2_table)</dt><dd><tt>Processes&nbsp;the&nbsp;information&nbsp;from&nbsp;co2.csv<br>
+and&nbsp;makes&nbsp;a&nbsp;plot&nbsp;based&nbsp;on&nbsp;the&nbsp;user's&nbsp;preference.<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;co2_table,&nbsp;dataframe&nbsp;object&nbsp;containing&nbsp;information&nbsp;on&nbsp;co2&nbsp;levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;each&nbsp;year.&nbsp;<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none</tt></dd></dl>
+ <dl><dt><a name="-process_temperature_table"><strong>process_temperature_table</strong></a>(temperature_table)</dt><dd><tt>Processes&nbsp;the&nbsp;information&nbsp;from&nbsp;temperature.csv<br>
+and&nbsp;makes&nbsp;a&nbsp;plot&nbsp;based&nbsp;on&nbsp;the&nbsp;user's&nbsp;preference.<br>
+&nbsp;<br>
+Input:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;temperature_table,&nbsp;table&nbsp;containing&nbsp;information&nbsp;on&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;how&nbsp;the&nbsp;temperature&nbsp;changes&nbsp;over&nbsp;years&nbsp;for&nbsp;each&nbsp;month<br>
+&nbsp;<br>
+Output:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none</tt></dd></dl>
+</td></tr></table>
+</body></html>

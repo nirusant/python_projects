@@ -1,0 +1,17 @@
+comment: 0;34
+import: 0;35
+from: 0;35
+as: 0;33
+string: 0;31
+special: 0;36
+function: 0;36
+class: 0;33
+def: 0;33
+for: 0;33
+in: 0;33
+if: 0;33
+elif: 0;33
+else: 0;33
+while: 0;33
+decorator: 0;35
+

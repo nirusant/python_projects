@@ -1,0 +1,1212 @@
+<!doctype html>	
+<head>
+<title>Temperature/CO2 plotter</title>
+<style>
+body{
+	background-color: #C5FEFF;
+	margin-left:auto;
+	margin-right:auto;
+}
+</style>
+</head>
+<body>
+<section>
+<nav>
+<li><a href="temp_doc">Help page/documentation: temperature_CO2_plotter.py </a></li>
+</nav>
+</section>
+<h2> Visualization of CO2 emissions and Temperature change: </h2>
+<table>
+	<td>
+	<section>
+		<article>
+		<img src = "{{ url_for('static', filename='temp.png') }}">
+		</article>
+		
+		<article>
+		<form action="temperature_change", method="POST">
+		Plot from year
+		<input type="number" name="time_from" value="1816">
+		to
+		<input type="number" name="time_to" value="2012">
+		<br />
+		temperature(y-axis)
+		<input type="number" name="temp_from" value="-10">
+		to
+		<input type="number" name="temp_to" value="30">
+		<br />
+		Select a month to plot:
+		<select name="month">
+			<option value="January">January</option>
+			<option value="February">February</option>
+			<option value="March">March</option>
+			<option value="April">April</option>
+			<option value="May">May</option>
+			<option value="June">June</option>
+			<option value="July">July</option>
+			<option value="August">August</option>
+			<option value="September">September</option>
+			<option value="October">October</option>
+			<option value="November">November</option>
+			<option value="December">December</option>
+			<option value="All">All</option>
+		</select>
+		<input type="submit" value="Update temperature-plot" class="btn btn-primary btn-lg" style="margin-top:10px">
+		</form>
+
+		</article>
+	</section>
+	</td>
+	<td>
+	<section>
+		<article>
+		<img src = "{{ url_for('static', filename='co2.png') }}">
+		</article>
+
+		<article>
+		<form action="CO2_change", method="POST">
+		Plot from year
+		<input type="number" name="time_from" value="1751">
+		to
+		<input type="number" name="time_to" value="2012">
+		<br />
+
+		CO2-range(y-axis)
+		<input type="number" name="co2_from" value="3">
+		to
+		<input type="number" name="co2_to" value="9671">
+		<input type="submit" value="Update CO2-plot" class="btn btn-primary btn-lg" style="margin-top:10px">
+		</form>
+		</article>
+	</section>
+	</td>
+</table>
+<h2> Visualization of CO2 emissions by country:</h2>
+<table>
+<td>
+<section>
+	<article>
+	<img src = "{{ url_for('static', filename='global_co2.png') }}" height="5000" width ="1500" >
+	<form action="co2country_change", method="POST">
+	Select a treshold:<input type="number" name="treshold" value="-1">
+	<input type="submit" value="Update image" class="btn btn-primary btn-lg" style="margin-top:10px">
+	</form>
+	</article>
+</section>
+</td>
+<td>
+<section>
+<table border="1" class="dataframe" height="25%">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Country Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Aruba</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Andorra</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Afghanistan</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Angola</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Albania</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Arab World</td>
+</tr>
+<tr>
+<th>6</th>
+<td>United Arab Emirates</td>
+</tr>
+<tr>
+<th>7</th>
+<td>Argentina</td>
+</tr>
+<tr>
+<th>8</th>
+<td>Armenia</td>
+</tr>
+<tr>
+<th>9</th>
+<td>American Samoa</td>
+</tr>
+<tr>
+<th>10</th>
+<td>Antigua and Barbuda</td>
+</tr>
+<tr>
+<th>11</th>
+<td>Australia</td>
+</tr>
+<tr>
+<th>12</th>
+<td>Austria</td>
+</tr>
+<tr>
+<th>13</th>
+<td>Azerbaijan</td>
+</tr>
+<tr>
+<th>14</th>
+<td>Burundi</td>
+</tr>
+<tr>
+<th>15</th>
+<td>Belgium</td>
+</tr>
+<tr>
+<th>16</th>
+<td>Benin</td>
+</tr>
+<tr>
+<th>17</th>
+<td>Burkina Faso</td>
+</tr>
+<tr>
+<th>18</th>
+<td>Bangladesh</td>
+</tr>
+<tr>
+<th>19</th>
+<td>Bulgaria</td>
+</tr>
+<tr>
+<th>20</th>
+<td>Bahrain</td>
+</tr>
+<tr>
+<th>21</th>
+<td>Bahamas, The</td>
+</tr>
+<tr>
+<th>22</th>
+<td>Bosnia and Herzegovina</td>
+</tr>
+<tr>
+<th>23</th>
+<td>Belarus</td>
+</tr>
+<tr>
+<th>24</th>
+<td>Belize</td>
+</tr>
+<tr>
+<th>25</th>
+<td>Bermuda</td>
+</tr>
+<tr>
+<th>26</th>
+<td>Bolivia</td>
+</tr>
+<tr>
+<th>27</th>
+<td>Brazil</td>
+</tr>
+<tr>
+<th>28</th>
+<td>Barbados</td>
+</tr>
+<tr>
+<th>29</th>
+<td>Brunei Darussalam</td>
+</tr>
+<tr>
+<th>30</th>
+<td>Bhutan</td>
+</tr>
+<tr>
+<th>31</th>
+<td>Botswana</td>
+</tr>
+<tr>
+<th>32</th>
+<td>Central African Republic</td>
+</tr>
+<tr>
+<th>33</th>
+<td>Canada</td>
+</tr>
+<tr>
+<th>34</th>
+<td>Central Europe and the Baltics</td>
+</tr>
+<tr>
+<th>35</th>
+<td>Switzerland</td>
+</tr>
+<tr>
+<th>36</th>
+<td>Channel Islands</td>
+</tr>
+<tr>
+<th>37</th>
+<td>Chile</td>
+</tr>
+<tr>
+<th>38</th>
+<td>China</td>
+</tr>
+<tr>
+<th>39</th>
+<td>Cote d'Ivoire</td>
+</tr>
+<tr>
+<th>40</th>
+<td>Cameroon</td>
+</tr>
+<tr>
+<th>41</th>
+<td>Congo, Rep.</td>
+</tr>
+<tr>
+<th>42</th>
+<td>Colombia</td>
+</tr>
+<tr>
+<th>43</th>
+<td>Comoros</td>
+</tr>
+<tr>
+<th>44</th>
+<td>Cabo Verde</td>
+</tr>
+<tr>
+<th>45</th>
+<td>Costa Rica</td>
+</tr>
+<tr>
+<th>46</th>
+<td>Caribbean small states</td>
+</tr>
+<tr>
+<th>47</th>
+<td>Cuba</td>
+</tr>
+<tr>
+<th>48</th>
+<td>Curacao</td>
+</tr>
+<tr>
+<th>49</th>
+<td>Cayman Islands</td>
+</tr>
+<tr>
+<th>50</th>
+<td>Cyprus</td>
+</tr>
+<tr>
+<th>51</th>
+<td>Czech Republic</td>
+</tr>
+<tr>
+<th>52</th>
+<td>Germany</td>
+</tr>
+<tr>
+<th>53</th>
+<td>Djibouti</td>
+</tr>
+<tr>
+<th>54</th>
+<td>Dominica</td>
+</tr>
+<tr>
+<th>55</th>
+<td>Denmark</td>
+</tr>
+<tr>
+<th>56</th>
+<td>Dominican Republic</td>
+</tr>
+<tr>
+<th>57</th>
+<td>Algeria</td>
+</tr>
+<tr>
+<th>58</th>
+<td>East Asia &amp; Pacific (excluding high income)</td>
+</tr>
+<tr>
+<th>59</th>
+<td>Early-demographic dividend</td>
+</tr>
+<tr>
+<th>60</th>
+<td>East Asia &amp; Pacific</td>
+</tr>
+<tr>
+<th>61</th>
+<td>Europe &amp; Central Asia (excluding high income)</td>
+</tr>
+<tr>
+<th>62</th>
+<td>Europe &amp; Central Asia</td>
+</tr>
+<tr>
+<th>63</th>
+<td>Ecuador</td>
+</tr>
+<tr>
+<th>64</th>
+<td>Egypt, Arab Rep.</td>
+</tr>
+<tr>
+<th>65</th>
+<td>Euro area</td>
+</tr>
+<tr>
+<th>66</th>
+<td>Eritrea</td>
+</tr>
+<tr>
+<th>67</th>
+<td>Spain</td>
+</tr>
+<tr>
+<th>68</th>
+<td>Estonia</td>
+</tr>
+<tr>
+<th>69</th>
+<td>Ethiopia</td>
+</tr>
+<tr>
+<th>70</th>
+<td>European Union</td>
+</tr>
+<tr>
+<th>71</th>
+<td>Fragile and conflict affected situations</td>
+</tr>
+<tr>
+<th>72</th>
+<td>Finland</td>
+</tr>
+<tr>
+<th>73</th>
+<td>Fiji</td>
+</tr>
+<tr>
+<th>74</th>
+<td>France</td>
+</tr>
+<tr>
+<th>75</th>
+<td>Faroe Islands</td>
+</tr>
+<tr>
+<th>76</th>
+<td>Micronesia, Fed. Sts.</td>
+</tr>
+<tr>
+<th>77</th>
+<td>Gabon</td>
+</tr>
+<tr>
+<th>78</th>
+<td>United Kingdom</td>
+</tr>
+<tr>
+<th>79</th>
+<td>Georgia</td>
+</tr>
+<tr>
+<th>80</th>
+<td>Ghana</td>
+</tr>
+<tr>
+<th>81</th>
+<td>Gibraltar</td>
+</tr>
+<tr>
+<th>82</th>
+<td>Guinea</td>
+</tr>
+<tr>
+<th>83</th>
+<td>Gambia, The</td>
+</tr>
+<tr>
+<th>84</th>
+<td>Guinea-Bissau</td>
+</tr>
+<tr>
+<th>85</th>
+<td>Equatorial Guinea</td>
+</tr>
+<tr>
+<th>86</th>
+<td>Greece</td>
+</tr>
+<tr>
+<th>87</th>
+<td>Grenada</td>
+</tr>
+<tr>
+<th>88</th>
+<td>Greenland</td>
+</tr>
+<tr>
+<th>89</th>
+<td>Guatemala</td>
+</tr>
+<tr>
+<th>90</th>
+<td>Guam</td>
+</tr>
+<tr>
+<th>91</th>
+<td>Guyana</td>
+</tr>
+<tr>
+<th>92</th>
+<td>High income</td>
+</tr>
+<tr>
+<th>93</th>
+<td>Hong Kong SAR, China</td>
+</tr>
+<tr>
+<th>94</th>
+<td>Honduras</td>
+</tr>
+<tr>
+<th>95</th>
+<td>Heavily indebted poor countries (HIPC)</td>
+</tr>
+<tr>
+<th>96</th>
+<td>Croatia</td>
+</tr>
+<tr>
+<th>97</th>
+<td>Haiti</td>
+</tr>
+<tr>
+<th>98</th>
+<td>Hungary</td>
+</tr>
+<tr>
+<th>99</th>
+<td>IBRD only</td>
+</tr>
+<tr>
+<th>100</th>
+<td>IDA &amp; IBRD total</td>
+</tr>
+<tr>
+<th>101</th>
+<td>IDA total</td>
+</tr>
+<tr>
+<th>102</th>
+<td>IDA blend</td>
+</tr>
+<tr>
+<th>103</th>
+<td>Indonesia</td>
+</tr>
+<tr>
+<th>104</th>
+<td>IDA only</td>
+</tr>
+<tr>
+<th>105</th>
+<td>Isle of Man</td>
+</tr>
+<tr>
+<th>106</th>
+<td>India</td>
+</tr>
+<tr>
+<th>107</th>
+<td>Not classified</td>
+</tr>
+<tr>
+<th>108</th>
+<td>Ireland</td>
+</tr>
+<tr>
+<th>109</th>
+<td>Iran, Islamic Rep.</td>
+</tr>
+<tr>
+<th>110</th>
+<td>Iraq</td>
+</tr>
+<tr>
+<th>111</th>
+<td>Iceland</td>
+</tr>
+<tr>
+<th>112</th>
+<td>Israel</td>
+</tr>
+<tr>
+<th>113</th>
+<td>Italy</td>
+</tr>
+<tr>
+<th>114</th>
+<td>Jamaica</td>
+</tr>
+<tr>
+<th>115</th>
+<td>Jordan</td>
+</tr>
+<tr>
+<th>116</th>
+<td>Japan</td>
+</tr>
+<tr>
+<th>117</th>
+<td>Kazakhstan</td>
+</tr>
+<tr>
+<th>118</th>
+<td>Kenya</td>
+</tr>
+<tr>
+<th>119</th>
+<td>Kyrgyz Republic</td>
+</tr>
+<tr>
+<th>120</th>
+<td>Cambodia</td>
+</tr>
+<tr>
+<th>121</th>
+<td>Kiribati</td>
+</tr>
+<tr>
+<th>122</th>
+<td>St. Kitts and Nevis</td>
+</tr>
+<tr>
+<th>123</th>
+<td>Korea, Rep.</td>
+</tr>
+<tr>
+<th>124</th>
+<td>Kosovo</td>
+</tr>
+<tr>
+<th>125</th>
+<td>Kuwait</td>
+</tr>
+<tr>
+<th>126</th>
+<td>Latin America &amp; Caribbean (excluding high income)</td>
+</tr>
+<tr>
+<th>127</th>
+<td>Lao PDR</td>
+</tr>
+<tr>
+<th>128</th>
+<td>Lebanon</td>
+</tr>
+<tr>
+<th>129</th>
+<td>Liberia</td>
+</tr>
+<tr>
+<th>130</th>
+<td>Libya</td>
+</tr>
+<tr>
+<th>131</th>
+<td>St. Lucia</td>
+</tr>
+<tr>
+<th>132</th>
+<td>Latin America &amp; Caribbean</td>
+</tr>
+<tr>
+<th>133</th>
+<td>Least developed countries: UN classification</td>
+</tr>
+<tr>
+<th>134</th>
+<td>Low income</td>
+</tr>
+<tr>
+<th>135</th>
+<td>Liechtenstein</td>
+</tr>
+<tr>
+<th>136</th>
+<td>Sri Lanka</td>
+</tr>
+<tr>
+<th>137</th>
+<td>Lower middle income</td>
+</tr>
+<tr>
+<th>138</th>
+<td>Low &amp; middle income</td>
+</tr>
+<tr>
+<th>139</th>
+<td>Lesotho</td>
+</tr>
+<tr>
+<th>140</th>
+<td>Late-demographic dividend</td>
+</tr>
+<tr>
+<th>141</th>
+<td>Lithuania</td>
+</tr>
+<tr>
+<th>142</th>
+<td>Luxembourg</td>
+</tr>
+<tr>
+<th>143</th>
+<td>Latvia</td>
+</tr>
+<tr>
+<th>144</th>
+<td>Macao SAR, China</td>
+</tr>
+<tr>
+<th>145</th>
+<td>St. Martin (French part)</td>
+</tr>
+<tr>
+<th>146</th>
+<td>Morocco</td>
+</tr>
+<tr>
+<th>147</th>
+<td>Monaco</td>
+</tr>
+<tr>
+<th>148</th>
+<td>Moldova</td>
+</tr>
+<tr>
+<th>149</th>
+<td>Madagascar</td>
+</tr>
+<tr>
+<th>150</th>
+<td>Maldives</td>
+</tr>
+<tr>
+<th>151</th>
+<td>Middle East &amp; North Africa</td>
+</tr>
+<tr>
+<th>152</th>
+<td>Mexico</td>
+</tr>
+<tr>
+<th>153</th>
+<td>Marshall Islands</td>
+</tr>
+<tr>
+<th>154</th>
+<td>Middle income</td>
+</tr>
+<tr>
+<th>155</th>
+<td>Macedonia, FYR</td>
+</tr>
+<tr>
+<th>156</th>
+<td>Mali</td>
+</tr>
+<tr>
+<th>157</th>
+<td>Malta</td>
+</tr>
+<tr>
+<th>158</th>
+<td>Myanmar</td>
+</tr>
+<tr>
+<th>159</th>
+<td>Middle East &amp; North Africa (excluding high inc...</td>
+</tr>
+<tr>
+<th>160</th>
+<td>Montenegro</td>
+</tr>
+<tr>
+<th>161</th>
+<td>Mongolia</td>
+</tr>
+<tr>
+<th>162</th>
+<td>Northern Mariana Islands</td>
+</tr>
+<tr>
+<th>163</th>
+<td>Mozambique</td>
+</tr>
+<tr>
+<th>164</th>
+<td>Mauritania</td>
+</tr>
+<tr>
+<th>165</th>
+<td>Mauritius</td>
+</tr>
+<tr>
+<th>166</th>
+<td>Malawi</td>
+</tr>
+<tr>
+<th>167</th>
+<td>Malaysia</td>
+</tr>
+<tr>
+<th>168</th>
+<td>North America</td>
+</tr>
+<tr>
+<th>169</th>
+<td>Namibia</td>
+</tr>
+<tr>
+<th>170</th>
+<td>New Caledonia</td>
+</tr>
+<tr>
+<th>171</th>
+<td>Niger</td>
+</tr>
+<tr>
+<th>172</th>
+<td>Nigeria</td>
+</tr>
+<tr>
+<th>173</th>
+<td>Nicaragua</td>
+</tr>
+<tr>
+<th>174</th>
+<td>Netherlands</td>
+</tr>
+<tr>
+<th>175</th>
+<td>Norway</td>
+</tr>
+<tr>
+<th>176</th>
+<td>Nepal</td>
+</tr>
+<tr>
+<th>177</th>
+<td>Nauru</td>
+</tr>
+<tr>
+<th>178</th>
+<td>New Zealand</td>
+</tr>
+<tr>
+<th>179</th>
+<td>OECD members</td>
+</tr>
+<tr>
+<th>180</th>
+<td>Oman</td>
+</tr>
+<tr>
+<th>181</th>
+<td>Other small states</td>
+</tr>
+<tr>
+<th>182</th>
+<td>Pakistan</td>
+</tr>
+<tr>
+<th>183</th>
+<td>Panama</td>
+</tr>
+<tr>
+<th>184</th>
+<td>Peru</td>
+</tr>
+<tr>
+<th>185</th>
+<td>Philippines</td>
+</tr>
+<tr>
+<th>186</th>
+<td>Palau</td>
+</tr>
+<tr>
+<th>187</th>
+<td>Papua New Guinea</td>
+</tr>
+<tr>
+<th>188</th>
+<td>Poland</td>
+</tr>
+<tr>
+<th>189</th>
+<td>Pre-demographic dividend</td>
+</tr>
+<tr>
+<th>190</th>
+<td>Puerto Rico</td>
+</tr>
+<tr>
+<th>191</th>
+<td>Korea, Dem. People’s Rep.</td>
+</tr>
+<tr>
+<th>192</th>
+<td>Portugal</td>
+</tr>
+<tr>
+<th>193</th>
+<td>Paraguay</td>
+</tr>
+<tr>
+<th>194</th>
+<td>Pacific island small states</td>
+</tr>
+<tr>
+<th>195</th>
+<td>Post-demographic dividend</td>
+</tr>
+<tr>
+<th>196</th>
+<td>French Polynesia</td>
+</tr>
+<tr>
+<th>197</th>
+<td>Qatar</td>
+</tr>
+<tr>
+<th>198</th>
+<td>Romania</td>
+</tr>
+<tr>
+<th>199</th>
+<td>Russian Federation</td>
+</tr>
+<tr>
+<th>200</th>
+<td>Rwanda</td>
+</tr>
+<tr>
+<th>201</th>
+<td>South Asia</td>
+</tr>
+<tr>
+<th>202</th>
+<td>Saudi Arabia</td>
+</tr>
+<tr>
+<th>203</th>
+<td>Sudan</td>
+</tr>
+<tr>
+<th>204</th>
+<td>Senegal</td>
+</tr>
+<tr>
+<th>205</th>
+<td>Singapore</td>
+</tr>
+<tr>
+<th>206</th>
+<td>Solomon Islands</td>
+</tr>
+<tr>
+<th>207</th>
+<td>Sierra Leone</td>
+</tr>
+<tr>
+<th>208</th>
+<td>El Salvador</td>
+</tr>
+<tr>
+<th>209</th>
+<td>San Marino</td>
+</tr>
+<tr>
+<th>210</th>
+<td>Somalia</td>
+</tr>
+<tr>
+<th>211</th>
+<td>Serbia</td>
+</tr>
+<tr>
+<th>212</th>
+<td>Sub-Saharan Africa (excluding high income)</td>
+</tr>
+<tr>
+<th>213</th>
+<td>South Sudan</td>
+</tr>
+<tr>
+<th>214</th>
+<td>Sub-Saharan Africa</td>
+</tr>
+<tr>
+<th>215</th>
+<td>Small states</td>
+</tr>
+<tr>
+<th>216</th>
+<td>Sao Tome and Principe</td>
+</tr>
+<tr>
+<th>217</th>
+<td>Suriname</td>
+</tr>
+<tr>
+<th>218</th>
+<td>Slovak Republic</td>
+</tr>
+<tr>
+<th>219</th>
+<td>Slovenia</td>
+</tr>
+<tr>
+<th>220</th>
+<td>Sweden</td>
+</tr>
+<tr>
+<th>221</th>
+<td>Swaziland</td>
+</tr>
+<tr>
+<th>222</th>
+<td>Sint Maarten (Dutch part)</td>
+</tr>
+<tr>
+<th>223</th>
+<td>Seychelles</td>
+</tr>
+<tr>
+<th>224</th>
+<td>Syrian Arab Republic</td>
+</tr>
+<tr>
+<th>225</th>
+<td>Turks and Caicos Islands</td>
+</tr>
+<tr>
+<th>226</th>
+<td>Chad</td>
+</tr>
+<tr>
+<th>227</th>
+<td>East Asia &amp; Pacific (IDA &amp; IBRD countries)</td>
+</tr>
+<tr>
+<th>228</th>
+<td>Europe &amp; Central Asia (IDA &amp; IBRD countries)</td>
+</tr>
+<tr>
+<th>229</th>
+<td>Togo</td>
+</tr>
+<tr>
+<th>230</th>
+<td>Thailand</td>
+</tr>
+<tr>
+<th>231</th>
+<td>Tajikistan</td>
+</tr>
+<tr>
+<th>232</th>
+<td>Turkmenistan</td>
+</tr>
+<tr>
+<th>233</th>
+<td>Latin America &amp; the Caribbean (IDA &amp; IBRD coun...</td>
+</tr>
+<tr>
+<th>234</th>
+<td>Middle East &amp; North Africa (IDA &amp; IBRD countries)</td>
+</tr>
+<tr>
+<th>235</th>
+<td>Timor-Leste</td>
+</tr>
+<tr>
+<th>236</th>
+<td>Tonga</td>
+</tr>
+<tr>
+<th>237</th>
+<td>South Asia (IDA &amp; IBRD)</td>
+</tr>
+<tr>
+<th>238</th>
+<td>Sub-Saharan Africa (IDA &amp; IBRD countries)</td>
+</tr>
+<tr>
+<th>239</th>
+<td>Trinidad and Tobago</td>
+</tr>
+<tr>
+<th>240</th>
+<td>Tunisia</td>
+</tr>
+<tr>
+<th>241</th>
+<td>Turkey</td>
+</tr>
+<tr>
+<th>242</th>
+<td>Tuvalu</td>
+</tr>
+<tr>
+<th>243</th>
+<td>Tanzania</td>
+</tr>
+<tr>
+<th>244</th>
+<td>Uganda</td>
+</tr>
+<tr>
+<th>245</th>
+<td>Ukraine</td>
+</tr>
+<tr>
+<th>246</th>
+<td>Upper middle income</td>
+</tr>
+<tr>
+<th>247</th>
+<td>Uruguay</td>
+</tr>
+<tr>
+<th>248</th>
+<td>United States</td>
+</tr>
+<tr>
+<th>249</th>
+<td>Uzbekistan</td>
+</tr>
+<tr>
+<th>250</th>
+<td>St. Vincent and the Grenadines</td>
+</tr>
+<tr>
+<th>251</th>
+<td>Venezuela, RB</td>
+</tr>
+<tr>
+<th>252</th>
+<td>British Virgin Islands</td>
+</tr>
+<tr>
+<th>253</th>
+<td>Virgin Islands (U.S.)</td>
+</tr>
+<tr>
+<th>254</th>
+<td>Vietnam</td>
+</tr>
+<tr>
+<th>255</th>
+<td>Vanuatu</td>
+</tr>
+<tr>
+<th>256</th>
+<td>West Bank and Gaza</td>
+</tr>
+<tr>
+<th>257</th>
+<td>World</td>
+</tr>
+<tr>
+<th>258</th>
+<td>Samoa</td>
+</tr>
+<tr>
+<th>259</th>
+<td>Yemen, Rep.</td>
+</tr>
+<tr>
+<th>260</th>
+<td>South Africa</td>
+</tr>
+<tr>
+<th>261</th>
+<td>Congo, Dem. Rep.</td>
+</tr>
+<tr>
+<th>262</th>
+<td>Zambia</td>
+</tr>
+<tr>
+<th>263</th>
+<td>Zimbabwe</td>
+</tr>
+</tbody>
+</table>
+</section>
+</td>
+</table>
+<p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="https://www.fg-a.com" target="_blank"><img class="embeddedObject" src="https://content.screencast.com/users/fg-a/folders/christmas/media/398d77af-32dc-4460-ae67-53f3ccf3da3a/4-animated-christmastree.gif" width="121" height="214" border="0" alt="Clipart" /></a>
+</p>
+</body>
+
